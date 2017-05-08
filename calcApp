@@ -1,0 +1,63 @@
+index.html file
+<html ng-app="calcApp">
+<head><title>Calculator App</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+.well{
+	margin-bottom:0px;
+	}
+.nav,.body
+{
+	height: 90%;
+
+}
+
+</style>
+</head>
+<body>
+<div class="row">
+	<div class= "col-sm-12 well">Home
+	</div>
+</div>
+<div class="row">
+	<div class= "col-sm-3 well nav">
+	<ul>
+		<li><a ui-sref="home">Home</a></li>
+		<li>Add</li>
+		<li>Delete</li>
+	</ul>
+	</div>
+	<div class= "col-sm-9 well body">
+	<ui-view></ui-view>
+	</div>
+</div>
+
+</body>
+</html>
+
+app.js
+
+var calcApp = angular.module("calcApp", ['ui.router']);
+calcApp.config(function($stateProvider){
+	$stateProvider
+
+	.state('home',{
+		url:'/home',
+		templateUrl:'home.html',
+	})
+})
+
+
+home.html
+
+<div>
+<strong>Welcome Home</strong></br>
+<p>Click on the links in the sidebar To navigate to other pages</p>
+</div>
